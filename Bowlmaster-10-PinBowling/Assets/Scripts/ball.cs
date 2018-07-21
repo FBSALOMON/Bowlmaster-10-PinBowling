@@ -2,24 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ball : MonoBehaviour {
+public class Ball : MonoBehaviour {
 
-    public float launchSpeed;
+    public Vector3 launchSpeed;
     private Rigidbody rigidbody;
     private AudioSource audioSource;
-	// Use this for initialization
-	void Start ()
+    public bool inPlay = false;
+    // Use this for initialization
+
+    void Start ()
     {
         rigidbody = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
-        Launch();
+        rigidbody.useGravity = false;
     }
 
-    public void Launch()
+    public void Launch(Vector3 velocity)
     {
-        rigidbody.velocity = new Vector3(0, 0, launchSpeed);
+        inPlay = true;
+
+        rigidbody.useGravity = true;
+        rigidbody.velocity = velocity;
+
+        audioSource = GetComponent<AudioSource>();
         audioSource.Play();
     }
+
 
     // Update is called once per frame
     void Update () {
