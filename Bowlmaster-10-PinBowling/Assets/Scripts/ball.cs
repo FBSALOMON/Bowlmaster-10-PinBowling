@@ -8,12 +8,14 @@ public class Ball : MonoBehaviour {
     private Rigidbody rigidbody;
     private AudioSource audioSource;
     public bool inPlay = false;
+    private Vector3 initialPosition;
     // Use this for initialization
 
     void Start ()
     {
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.useGravity = false;
+        initialPosition = transform.position;
     }
 
     public void Launch(Vector3 velocity)
@@ -32,4 +34,14 @@ public class Ball : MonoBehaviour {
     void Update () {
 		
 	}
+
+    public void Reset()
+    {
+        inPlay = false;
+        transform.position = initialPosition;
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
+        rigidbody.rotation = Quaternion.identity;
+        rigidbody.useGravity = false;
+    }
 }

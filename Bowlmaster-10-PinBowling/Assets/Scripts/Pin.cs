@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pin : MonoBehaviour {
-
+    public float distanceToRaise = 40f;
     public float standingThreshold = 3f;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private Rigidbody rigidbody;
+
+    // Use this for initialization
+    void Start () {
+        rigidbody = GetComponent<Rigidbody>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,7 +20,7 @@ public class Pin : MonoBehaviour {
     public bool IsStanding()
     {
         Vector3 rotationInEuller = transform.rotation.eulerAngles;
-        float tiltInX = Mathf.Abs(rotationInEuller.x);
+        float tiltInX = Mathf.Abs(270 - rotationInEuller.x);
         float tiltInZ = Mathf.Abs(rotationInEuller.z);
 
         if (tiltInX < standingThreshold && tiltInZ < standingThreshold)
@@ -33,4 +35,21 @@ public class Pin : MonoBehaviour {
         this.GetComponent<Rigidbody>().solverVelocityIterations = 10;
     }
 
+    public void Raise()
+    {
+        if (IsStanding())
+        {
+            transform.Translate(new Vector3(0, distanceToRaise, 0), Space.World);
+            rigidbody.useGravity = false;
+        }
+    }
+
+    public void Lower()
+    {
+        if (IsStanding())
+        {
+            transform.Translate(new Vector3(0, -distanceToRaise, 0), Space.World);
+                rigidbody.useGravity = true;
+        }
+    }
 }
