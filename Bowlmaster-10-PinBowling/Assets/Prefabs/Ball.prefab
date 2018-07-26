@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54551176048143862}
   - component: {fileID: 114138280670094096}
   - component: {fileID: 82100309490927484}
+  - component: {fileID: 114163379692531652}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -38,13 +39,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1165713739312012}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.17200184, z: -0, w: 0.9850967}
   m_LocalPosition: {x: 0, y: 31.79, z: 30}
   m_LocalScale: {x: 21.7, y: 21.7, z: 21.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 19.808, z: 0}
 --- !u!23 &23421550284362658
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -59,7 +60,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e57ea3989dc7f4e50bd55982de841177, type: 2}
+  - {fileID: 2100000, guid: f8adb836c85f45e48a098d09eeed0b6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,7 +193,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719418d008a81af4887bff488e1bd17b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchSpeed: {x: 0, y: 0, z: 1600}
+  launchSpeed: {x: 0, y: 0, z: 0}
+  inPlay: 0
+--- !u!114 &114163379692531652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165713739312012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddddbfe699a3d840a5cf91d1585538f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135003498528003786
 SphereCollider:
   m_ObjectHideFlags: 1
