@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     public Vector3 launchSpeed;
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
     private AudioSource audioSource;
     public bool inPlay = false;
     private Vector3 initialPosition;

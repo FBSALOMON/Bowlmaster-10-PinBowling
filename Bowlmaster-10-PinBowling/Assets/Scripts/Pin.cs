@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pin : MonoBehaviour {
     public float distanceToRaise = 40f;
     public float standingThreshold = 3f;
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
     // Use this for initialization
     void Start () {
@@ -38,6 +38,7 @@ public class Pin : MonoBehaviour {
     {
         if (IsStanding())
         {
+            transform.rotation = Quaternion.Euler(270f, 0, 0);
             transform.Translate(new Vector3(0, distanceToRaise, 0), Space.World);
             rigidbody.useGravity = false;
         }
